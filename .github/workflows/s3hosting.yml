@@ -23,4 +23,4 @@ jobs:
         env:
           S3_BUCKET: ${{ vars.S3_BUCKET }}
         run: |
-          aws s3 sync . s3://$S3_BUCKET --delete --acl public-read --exclude ".git/*" --exclude ".github/*"
+          aws s3 sync . s3://$S3_BUCKET --delete --exclude ".git/*" --exclude ".github/*"
