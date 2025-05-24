@@ -20,5 +20,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync files to S3
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
         run: |
           aws s3 sync . s3://$S3_BUCKET --delete --acl public-read --exclude ".git/*" --exclude ".github/*"
